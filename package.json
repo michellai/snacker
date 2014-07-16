@@ -5,7 +5,8 @@
   "dependencies": {
     "express": "~3.1.0",
     "path": "~0.4.9",
-    "node-fs": "~0.1.7"
+    "node-fs": "~0.1.7",
+    "mongoose": "1.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

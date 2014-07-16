@@ -1,0 +1,66 @@
+[
+  {
+    "id": "4fd43cc56d11340000000005",
+    "words": ["cherries"],
+    "time_limit": 120,
+    "genre": [""],
+    "status": "open",
+    "entries": [
+      { 
+        "post": {
+          "author": {
+            "name": "Abby",
+            "id": "08aaff"
+          },
+          "id": 8,
+          "entry": "Cherries are as red as my lips, and just as sweet.",
+          "score": 6
+        }
+      },
+      {
+        "post": {
+          "author": {
+            "name": "Bob",
+            "id": "09aaff"
+          },
+          "id": 10,
+          "entry": "When the last cherry fell, all hope was lost for the laziest squirrel.",
+          "score": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "4fd43cc56d11340000000006",
+    "words": ["boat"],
+    "time_limit": 120,
+    "genre": [""],
+    "status": "open",
+    "entries": [
+      {
+        "post": {
+          "author": {
+            "name": "Carl",
+            "id": "08bbff"
+          },
+          "id": 1,
+          "entry": "The chain creaked, the bow sighed. He slipped down from the top bunk, ready for another day in the reef.",
+          "score": 12
+        }
+      },
+      {
+        "post": {
+          "author": {
+            "name": "Doris",
+            "id": "08aacc"
+          },
+          "id": 2,
+          "entry": "They marched, two by two into the wooden monstrosity.",
+          "score": 14
+        }
+      }
+    ]
+  }
+]
+
+

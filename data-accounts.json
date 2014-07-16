@@ -1,0 +1,77 @@
+[
+  {
+    "id": "08aaff",
+    "name": "Abby",
+    "email": "abby@gmail.com",
+    "member_since": "07/15/14 08:00:00",
+    "last_seen": "07/15/14 08:30:00",
+    "num_entries": 1,
+    "wins": 0,
+    "badges": [ 
+      "author"
+    ],
+    "contests": [
+      "4fd43cc56d11340000000005"
+    ]
+  },
+  {
+    "id": "08aaff",
+    "name": "Abby",
+    "email": "abby@gmail.com",
+    "member_since": "07/15/14 08:00:00",
+    "last_seen": "07/15/14 08:30:00",
+    "num_entries": 1,
+    "wins": 0,
+    "badges": [ 
+      "author"
+    ],
+    "contests": [
+      "4fd43cc56d11340000000005"
+    ]
+  },
+  {
+    "id": "09aaff",
+    "name": "Bob",
+    "email": "bob@gmail.com",
+    "member_since": "07/15/14 08:00:00",
+    "last_seen": "07/15/14 08:30:00",
+    "num_entries": 1,
+    "wins": 0,
+    "badges": [ 
+      "author"
+    ],
+    "contests": [
+      "4fd43cc56d11340000000005"
+    ]
+  },
+  {
+    "id": "08bbff",
+    "name": "Carl",
+    "email": "carl@gmail.com",
+    "member_since": "07/15/14 08:00:00",
+    "last_seen": "07/15/14 08:30:00",
+    "num_entries": 1,
+    "wins": 0,
+    "badges": [ 
+      "author"
+    ],
+    "contests": [
+      "4fd43cc56d11340000000006"
+    ]
+  },
+  {
+    "id": "08aacc",
+    "name": "Doris",
+    "email": "doris@gmail.com",
+    "member_since": "07/15/14 08:00:00",
+    "last_seen": "07/15/14 08:30:00",
+    "num_entries": 1,
+    "wins": 0,
+    "badges": [ 
+      "author"
+    ],
+    "contests": [
+      "4fd43cc56d11340000000006"
+    ]
+  }
+]
