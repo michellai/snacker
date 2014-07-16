@@ -53,7 +53,8 @@
     "num_entries": 1,
     "wins": 0,
     "badges": [ 
-      "author"
+      "author",
+      "genius"
     ],
     "contests": [
       "4fd43cc56d11340000000006"
@@ -68,7 +69,8 @@
     "num_entries": 1,
     "wins": 0,
     "badges": [ 
-      "author"
+      "author",
+      "poet"
     ],
     "contests": [
       "4fd43cc56d11340000000006"
