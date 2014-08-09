@@ -54,7 +54,6 @@ authorSchema =  new mongoose.Schema(authorData);
 
 postData = {
     author: authorData,
-    id: String,
     entry: String,
     score: Number
 };
@@ -136,7 +135,46 @@ app.post('/api/contests/new', function(request, response) {
     response.redirect('/api/contests/' + c._id);
     //response.end("It worked");
 });
-app.post('/api/contests/:id');
+app.get('/api/posts', function( request, response ) {
+    console.log(Post.find());
+    Post.find({}, function (err, post) {
+        if (err) return handleError(err);
+        //response.json(JSON.parse(contest));
+        console.log('%s', post);
+        response.json(post);
+    });
+});
+app.get( '/api/posts/:id', function( request, response ) {
+    console.log(request.params.id);
+
+    Post.findById(request.params.id, function (err, post) {
+        if (err) return handleError(err);
+        //response.json(JSON.parse(contest));
+        console.log('%s', post);
+        response.json(post);
+    });
+});
+app.post('/api/posts/new', function(request, response) {
+    var p = new Post();
+    var a = new Author();
+    a.name = request.body.author.name;
+    a.save(function (err) {
+        if (err) return handleError(err);
+    });
+    console.log('saved author: %s', a._id);
+
+    p.author = a;
+    p.entry = request.body.entry;
+    p.score = request.body.score;
+    p.save(function (err) {
+        if (err) return handleError(err);
+    });
+    console.log('saved entry: %s', p._id);
+    console.log('saved author: %s', a._id);
+    console.log('entry: %s', p.entry);
+    response.redirect('/api/posts/' + p._id);
+});
+
 //app.post()
 //app.put( )
 //app.post( 'api/')
