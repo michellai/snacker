@@ -69,7 +69,6 @@ contestData = {
 var contestSchema = new mongoose.Schema(contestData);
 
 accountData = {
-    id: String,
     name: String,
     email: String,
     member_since: Date,
@@ -91,6 +90,10 @@ var Account = mongoose.model('Account', accountSchema);
 //var contest = new Contest(data);
 //contest.save();
 app.use(express.bodyParser());
+
+/*****************************************/
+/* /api/contests                            */
+/*****************************************/
 
 app.get( '/api/contests', function( request, response ) {
     console.log(Contest.find());
@@ -135,6 +138,10 @@ app.post('/api/contests/new', function(request, response) {
     response.redirect('/api/contests/' + c._id);
     //response.end("It worked");
 });
+/*****************************************/
+/* /api/posts                            */
+/*****************************************/
+
 app.get('/api/posts', function( request, response ) {
     console.log(Post.find());
     Post.find({}, function (err, post) {
@@ -174,6 +181,51 @@ app.post('/api/posts/new', function(request, response) {
     console.log('entry: %s', p.entry);
     response.redirect('/api/posts/' + p._id);
 });
+/*****************************************/
+/* /api/accounts                         */
+/*****************************************/
+
+app.get('/api/accounts', function( request, response ) {
+    console.log(Account.find());
+    Account.find({}, function (err, account) {
+        if (err) return handleError(err);
+        //response.json(JSON.parse(contest));
+        console.log('%s', account);
+        response.json(account);
+    });
+});
+app.get( '/api/account/:id', function( request, response ) {
+    console.log(request.params.id);
+
+    Account.findById(request.params.id, function (err, account) {
+        if (err) return handleError(err);
+        //response.json(JSON.parse(contest));
+        console.log('%s', account);
+        response.json(account);
+    });
+});
+app.post('/api/account/new', function(request, response) {
+    var a = new Account();
+    a.name = request.body.name;
+    a.email = request.body.email;
+    a.member_since = new Date(); //date now
+    a.last_seen = a.member_since;
+    a.num_entries = 0;
+    a.wins = 0;
+    a.badges = [];
+    a.contests = [];
+
+    a.save(function (err) {
+        if (err) return handleError(err);
+    });
+    console.log('saved author: %s', a._id);
+
+    response.redirect('/api/account/' + a._id);
+});
+/*****************************************/
+/* /api/account                          */
+/*****************************************/
+
 
 //app.post()
 //app.put( )
