@@ -1,37 +1,55 @@
+
 // Module dependencies.
 var application_root = __dirname,
     express = require( 'express' ), //Web framework
     path = require( 'path' ), //Utilities for dealing with file paths
-    fs = require( 'node-fs' ); //file system
+    fs = require( 'node-fs' ), //file system
+    stylus = require('stylus'),
+    nib = require('nib'),
     mongoose = require('mongoose');
 
 //Create server
 var app = express();
+function compile(str, path) {
+  return stylus(str)
+    .set('filename', path)
+    .use(nib());
+}
 
-// // Configure server
-// app.configure( function() {
-//     //parses request body and populates request.body
-//     app.use( express.bodyParser() );
+// Configure server
+app.configure( function() {
+    app.set('views', __dirname + '/app/views/layouts');
+    app.set('view engine', 'jade');
+    app.use(express.logger('dev'));
+    app.use(stylus.middleware(
+      { src: __dirname + '/public',
+        compile: compile
+      }
+    ));
+    //parses request body and populates request.body
+    app.use( express.bodyParser() );
 
-//     //checks request.body for HTTP method overrides
-//     app.use( express.methodOverride() );
+    //checks request.body for HTTP method overrides
+    app.use( express.methodOverride() );
 
-//     //perform route lookup based on url and HTTP method
-//     app.use( app.router );
+    //perform route lookup based on url and HTTP method
+    app.use( app.router );
 
-//     //Where to serve static content
-//     app.use( express.static( path.join( application_root, 'site') ) );
-
-//     //Show all errors in development
-//     app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
-// });
-
+    //Where to serve static content
+    //app.use( express.static( path.join( application_root, 'site') ) );
+    app.use(express.static(__dirname + '/public'));
+    app.use('public/javascripts', express.static(path.join(__dirname, 'public/javascripts')));
+    app.use('public/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
+    //Show all errors in development
+    app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
 
 //Start server
 var port = 4711;
 app.listen( port, function() {
     console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
 });
+
 //Connect to database
 var post_db = 'mongodb://localhost/post_data';
 console.log(post_db);
@@ -89,7 +107,13 @@ var Account = mongoose.model('Account', accountSchema);
 //db.on('error', handleError);
 //var contest = new Contest(data);
 //contest.save();
-app.use(express.bodyParser());
+//app.use(express.bodyParser());
+
+app.get('/', function (req, res) {
+  res.render('index',
+  { title : 'Home' }
+  );
+});
 
 /*****************************************/
 /* /api/contests                            */
@@ -182,7 +206,7 @@ app.post('/api/posts/new', function(request, response) {
     response.redirect('/api/posts/' + p._id);
 });
 /*****************************************/
-/* /api/accounts                         */
+/* /api/account                          */
 /*****************************************/
 
 app.get('/api/accounts', function( request, response ) {
@@ -208,6 +232,7 @@ app.post('/api/account/new', function(request, response) {
     var a = new Account();
     a.name = request.body.name;
     a.email = request.body.email;
+    a.password = request.body.password;
     a.member_since = new Date(); //date now
     a.last_seen = a.member_since;
     a.num_entries = 0;
@@ -222,11 +247,3 @@ app.post('/api/account/new', function(request, response) {
 
     response.redirect('/api/account/' + a._id);
 });
-/*****************************************/
-/* /api/account                          */
-/*****************************************/
-
-
-//app.post()
-//app.put( )
-//app.post( 'api/')
