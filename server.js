@@ -48,9 +48,11 @@ app.configure( function() {
 var port = 4711;
 
 //Connect to database
-var post_db = 'mongodb://localhost/post_data';
-console.log(post_db);
-var db = mongoose.connect( post_db );
+var mongoUri = process.env.MONGOLAB_URI ||
+               process.env.MONGOHQ_URL ||
+               'mongodb://localhost/post_data';
+console.log(mongoUri);
+var db = mongoose.connect( mongoUri );
 
 function handleError(err, req, res, next) {
   // log it

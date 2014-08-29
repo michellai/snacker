@@ -9,7 +9,8 @@
     "mongoose": "1.4.0",
     "jade": "*",
     "stylus": "*",
-    "nib": "*"
+    "nib": "*",
+    "mongodb": "~1.4.9"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
