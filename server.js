@@ -44,9 +44,6 @@ app.configure( function() {
     app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-//Start server
-var port = 4711;
-
 //Connect to database
 var mongoUri = process.env.MONGOLAB_URI ||
                process.env.MONGOHQ_URL ||
@@ -69,6 +66,9 @@ fs.readdirSync(models_path).forEach(function (file) {
 });
 // Bootstrap routes
 require('./config/routes')(app);
+
+//Start server
+var port = process.env.PORT || 4711;
 
 app.listen( port, function() {
     console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
