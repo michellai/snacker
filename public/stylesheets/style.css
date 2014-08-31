@@ -5,6 +5,11 @@
  * Grab a custom font from Google
  */
 @import url("http://fonts.googleapis.com/css?family=Quicksand");
+@font-face {
+  font-family: "Garamond Italic";
+  font-style: normal;
+  src: url("../fonts/Garamond Italic.ttf");
+}
 /*
  * Nib provides a CSS reset
  */
@@ -105,22 +110,44 @@ a img {
  */
 body {
   font-family: 'Georgia';
-  background-color: #faf9f0;
+  background-color: #fff;
+  background-image: url("../images/angelcake_sm.png");
   color: #444;
 }
 header {
   font-family: 'Quicksand';
   padding: 50px 10px;
-  color: #fff;
+  color: #333;
   font-size: 25px;
   text-align: center;
 /*
    * Note the use of the `main-color`
    * variable and the `darken` function
    */
-  background-color: #fa5b4d;
+  background-image: url("../images/angelcake_sm.png");
   border-bottom: 1px solid #df1806;
-  text-shadow: 0px -1px 0px #df1806;
+}
+.logoline {
+  background-color: #fff;
+  text-align: center;
+}
+.tagline {
+  vertical-align: middle;
+  font-family: "Garamond Italic", Verdana, Tahoma;
+  padding-top: 15%;
+  font-size: 18px;
+  letter-spacing: 10px;
+  display: inline;
+  background-color: #fff;
+}
+.tagright {
+  padding-left: 3%;
+}
+.tagleft {
+  padding-right: 3%;
+}
+.homelink {
+  height: 119px;
 }
 .container {
   width: 500px;
@@ -148,7 +175,7 @@ header {
   border-radius: 3px;
   border: 1px solid #ccc;
   margin-left: 20px;
-  background-color: #faf9f0;
+  background-color: #fff;
   -webkit-box-shadow: inset 0px 0px 0px 3px rgba(255,255,255,0.8), 0px 3px 0px -2px rgba(0,0,0,0.1);
   box-shadow: inset 0px 0px 0px 3px rgba(255,255,255,0.8), 0px 3px 0px -2px rgba(0,0,0,0.1);
 }

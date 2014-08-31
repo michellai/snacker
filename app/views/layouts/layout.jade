@@ -1,11 +1,17 @@
 doctype html
 html
   head
-    title #{title} - My Site
+    title #{title} - Snackwrite
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
-      h1 My Site
+      .logoline
+        span.tagline
+          span.tagleft fictitious
+        a.homelink
+          img(src= '/images/pencilcake.png')
+        span.tagline 
+          span.tagright nibbling
     .container
       .main-content
         block content
