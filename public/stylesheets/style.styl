@@ -6,7 +6,12 @@
 /*
  * Grab a custom font from Google
  */
-@import url('http://fonts.googleapis.com/css?family=Quicksand')
+//@import url('http://fonts.googleapis.com/css?family=Quicksand')
+@font-face
+   font-family "Quicksand"
+   font-style normal
+   src url('../fonts/quicksand/Quicksand-Regular.ttf')
+
 
 @font-face
    font-family "Garamond Italic"
@@ -34,7 +39,7 @@ body
 
 header
   font-family 'Quicksand'
-  padding 50px 10px
+  padding 10px 10px
   color #333
   font-size 25px
   text-align center
@@ -50,23 +55,18 @@ header
 
 .logoline
   background-color rgba(255,255,255, 1)
-  text-align center
-
-.tagline
-  vertical-align middle
   font-family "Garamond Italic", Verdana, Tahoma
-  padding-top 15%
   font-size 18px
-  //opacity .25
   letter-spacing 10px
   display inline
-  background-color #FFFFFF
 
 .tagright
-  padding-left: 3%;
+  padding-left 2%
+  vertical-align 50px
 
 .tagleft
-  padding-right: 3%;
+  padding-right 2%
+  vertical-align 50px
 
 .homelink
   //display: inline;
@@ -80,9 +80,48 @@ header
 .main-content
   float left
   width 300px
+  font-family 'Quicksand'
 
-  p
-    margin-bottom 20px
+  .read
+    left 15%
+  .write
+    left 40%
+  .snack
+    left 65%
+
+  .bubble
+    max-width 100%
+    max-height 80%
+    position fixed
+    padding 7%;
+
+  .shadow
+    border-radius 100%
+    -webkit-border-radius 100%
+    -moz-border-radius 100%
+    background-color rgb( 108, 203, 252 )
+
+  .shadow:hover
+      visibility hidden
+
+  a.pushme
+    border-radius 100%
+    -webkit-border-radius 100%
+    -moz-border-radius 100%
+    background-color rgb( 35, 242, 250 )
+    //vertical-align middle
+
+  .pushme:hover
+    background-color rgb( 255, 248, 175)
+    text-decoration none
+
+  p.choice
+    color white
+    position absolute
+    top 35%
+    vertical-align middle
+
+      
 
 .sidebar
   float left
@@ -95,6 +134,7 @@ header
      * prefixes here. Nib will
      * add them for us
      */
+    display none
     border-radius 3px
     border 1px solid #ccc
     margin-left 20px
@@ -114,12 +154,13 @@ header
       padding 0px 10px
       margin-bottom 10px
 
-p
-  line-height 1.8
-
 footer
   width 500px
   margin 50px auto
   border-top 1px dotted #ccc
   padding-top 5px
   font-size 13px
+
+  p
+  line-height 1.8
+  display none

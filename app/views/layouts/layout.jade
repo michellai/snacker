@@ -3,15 +3,17 @@ html
   head
     title #{title} - Snackwrite
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/javascripts/jquery-1.6.2.js")
+    script(src="/javascripts/jquery-ui-1.8.16.custom.js")
+    script(src="/javascripts/choice.js")
   body
     header
       .logoline
-        span.tagline
-          span.tagleft fictitious
+        span.tagleft fictitious
         a.homelink
           img(src= '/images/pencilcake.png')
-        span.tagline 
-          span.tagright nibbling
+        span.tagright nibbling
+      .brand snackwrite
     .container
       .main-content
         block content

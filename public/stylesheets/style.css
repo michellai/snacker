@@ -4,7 +4,11 @@
 /*
  * Grab a custom font from Google
  */
-@import url("http://fonts.googleapis.com/css?family=Quicksand");
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  src: url("../fonts/quicksand/Quicksand-Regular.ttf");
+}
 @font-face {
   font-family: "Garamond Italic";
   font-style: normal;
@@ -116,7 +120,7 @@ body {
 }
 header {
   font-family: 'Quicksand';
-  padding: 50px 10px;
+  padding: 10px 10px;
   color: #333;
   font-size: 25px;
   text-align: center;
@@ -129,22 +133,18 @@ header {
 }
 .logoline {
   background-color: #fff;
-  text-align: center;
-}
-.tagline {
-  vertical-align: middle;
   font-family: "Garamond Italic", Verdana, Tahoma;
-  padding-top: 15%;
   font-size: 18px;
   letter-spacing: 10px;
   display: inline;
-  background-color: #fff;
 }
 .tagright {
-  padding-left: 3%;
+  padding-left: 2%;
+  vertical-align: 50px;
 }
 .tagleft {
-  padding-right: 3%;
+  padding-right: 2%;
+  vertical-align: 50px;
 }
 .homelink {
   height: 119px;
@@ -157,9 +157,49 @@ header {
 .main-content {
   float: left;
   width: 300px;
+  font-family: 'Quicksand';
 }
-.main-content p {
-  margin-bottom: 20px;
+.main-content .read {
+  left: 15%;
+}
+.main-content .write {
+  left: 40%;
+}
+.main-content .snack {
+  left: 65%;
+}
+.main-content .bubble {
+  max-width: 100%;
+  max-height: 80%;
+  position: fixed;
+  padding: 7%;
+}
+.main-content .shadow {
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  background-color: #6ccbfc;
+}
+.main-content .shadow:hover {
+  visibility: hidden;
+}
+.main-content a.pushme {
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  background-color: #23f2fa;
+}
+.main-content .pushme:hover {
+  background-color: #fff8af;
+  text-decoration: none;
+}
+.main-content p.choice {
+  color: #fff;
+  position: absolute;
+  top: 35%;
+  vertical-align: middle;
 }
 .sidebar {
   float: left;
@@ -171,6 +211,7 @@ header {
      * prefixes here. Nib will
      * add them for us
      */
+  display: none;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #ccc;
@@ -193,13 +234,12 @@ header {
   padding: 0px 10px;
   margin-bottom: 10px;
 }
-p {
-  line-height: 1.8;
-}
 footer {
   width: 500px;
   margin: 50px auto;
   border-top: 1px dotted #ccc;
   padding-top: 5px;
   font-size: 13px;
+  line-height: 1.8;
+  display: none;
 }
